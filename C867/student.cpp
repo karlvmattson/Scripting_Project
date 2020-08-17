@@ -12,7 +12,8 @@
 using namespace std;
 
 //Constructor
-Student::Student(string newStudentID, string newFirstName, string newLastName, string newEmailAddress, int newAge, int newDaysInCourse1, int newDaysInCourse2, int newDaysInCourse3, DegreeProgram newDegree) {
+Student::Student(string newStudentID, string newFirstName, string newLastName, string newEmailAddress, 
+                  int newAge, int newDaysInCourse1, int newDaysInCourse2, int newDaysInCourse3, DegreeProgram newDegree) {
    studentID = newStudentID;
    firstName = newFirstName;
    lastName = newLastName;
@@ -132,4 +133,5 @@ void Student::print() const {
    cout << "Age: " << age << "\t";
    cout << "daysInCourse: {" << daysInCourse[0] << ", " << daysInCourse[1] << ", " << daysInCourse[2] << "}\t";
    cout << "Degree Program: " << this->getDegreeString() << endl;
+   cout << flush;
 };
