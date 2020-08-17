@@ -31,7 +31,12 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
    }
 
    //Create new Student
-   Student* newStudent = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+   int* newDays = new int[3];
+   newDays[0] = daysInCourse1;
+   newDays[1] = daysInCourse2;
+   newDays[2] = daysInCourse3;
+   Student* newStudent = new Student(studentID, firstName, lastName, emailAddress, age, newDays, degreeProgram);
+   delete[] newDays;
 
    //Increment roster size
    rosterSize++;
@@ -105,7 +110,9 @@ void Roster::printAverageDaysInCourse(string studentID) const {
       cout << "Student ID not found" << endl;
    }
    else {
-      cout << "Average days in course: " << (((*studentPtr).getDaysInCourse1() + (*studentPtr).getDaysInCourse2() + (*studentPtr).getDaysInCourse3()) / 3) << endl;
+      int* dayArray = new int[3];
+      dayArray = (*studentPtr).getDaysInCourse();
+      cout << "Average days in course: " << ((dayArray[0] + dayArray[1] + dayArray[2]) / 3) << endl;
    }
 }
 
@@ -113,13 +120,16 @@ void Roster::printInvalidEmails() const {
    string testEmail = "";
    int atPos = 0;
    int dotPos = 0;
+   int spacePos = 0;
    for (int i = 0; i < rosterSize; i++) {
       atPos = 0;
       dotPos = 0;
+      spacePos = 0;
       testEmail = classRosterArray[i]->getEmailAddress();
       atPos = testEmail.find("@");
       dotPos = testEmail.find(".", atPos);
-      if (dotPos < 1 || atPos < 1) {
+      spacePos = testEmail.find(" ");
+      if (dotPos < 1 || atPos < 1 || spacePos > 0) {
          cout << testEmail << endl;
       }
    }

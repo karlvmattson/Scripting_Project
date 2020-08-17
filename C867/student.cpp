@@ -13,15 +13,15 @@ using namespace std;
 
 //Constructor
 Student::Student(string newStudentID, string newFirstName, string newLastName, string newEmailAddress, 
-                  int newAge, int newDaysInCourse1, int newDaysInCourse2, int newDaysInCourse3, DegreeProgram newDegree) {
+                  int newAge, int newDaysInCourse[3], DegreeProgram newDegree) {
    studentID = newStudentID;
    firstName = newFirstName;
    lastName = newLastName;
    emailAddress = newEmailAddress;
    age = newAge;
-   daysInCourse[0] = newDaysInCourse1;
-   daysInCourse[1] = newDaysInCourse2;
-   daysInCourse[2] = newDaysInCourse3;
+   daysInCourse[0] = newDaysInCourse[0];
+   daysInCourse[1] = newDaysInCourse[1];
+   daysInCourse[2] = newDaysInCourse[2];
    degree = newDegree;
 };
 
@@ -58,16 +58,12 @@ int Student::getAge() const {
    return age;
 };
 
-int Student::getDaysInCourse1() const {
-   return daysInCourse[0];
-};
-
-int Student::getDaysInCourse2() const {
-   return daysInCourse[1];
-};
-
-int Student::getDaysInCourse3() const {
-   return daysInCourse[2];
+int * Student::getDaysInCourse() const {
+   int* returnDays = new int[3];
+   returnDays[0] = daysInCourse[0];
+   returnDays[1] = daysInCourse[1];
+   returnDays[2] = daysInCourse[2];
+   return returnDays;
 };
 
 DegreeProgram Student::getDegreeProgram() const {
@@ -109,16 +105,10 @@ void Student::setAge(int newAge) {
    age = newAge;
 };
 
-void Student::setDaysInCourse1(int newDaysInCourse) {
-   daysInCourse[0] = newDaysInCourse;
-};
-
-void Student::setDaysInCourse2(int newDaysInCourse) {
-   daysInCourse[1] = newDaysInCourse;
-};
-
-void Student::setDaysInCourse3(int newDaysInCourse) {
-   daysInCourse[2] = newDaysInCourse;
+void Student::setDaysInCourse(int newDaysInCourse[3]) {
+   daysInCourse[0] = newDaysInCourse[0];
+   daysInCourse[1] = newDaysInCourse[1];
+   daysInCourse[2] = newDaysInCourse[2];
 };
 
 void Student::setDegree(DegreeProgram newDegree) {

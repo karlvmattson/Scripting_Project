@@ -13,7 +13,7 @@ class Student {
    public:
       //Constructor
       Student(string studentID, string firstName, string lastName, string emailAddress, 
-         int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degree);
+         int age, int daysInCourse[3], DegreeProgram degree);
       Student();
 
       //Getters
@@ -22,9 +22,7 @@ class Student {
       string         getLastName() const;
       string         getEmailAddress() const;
       int            getAge() const;
-      int            getDaysInCourse1() const;
-      int            getDaysInCourse2() const;
-      int            getDaysInCourse3() const;
+      int*           getDaysInCourse() const;
       DegreeProgram  getDegreeProgram() const;
       string         getDegreeString() const;
 
@@ -34,9 +32,7 @@ class Student {
       void           setLastName(string newLastName);
       void           setEmailAddress(string newEmailAddress);
       void           setAge(int newAge);
-      void           setDaysInCourse1(int newDaysInCourse);
-      void           setDaysInCourse2(int newDaysInCourse);
-      void           setDaysInCourse3(int newDaysInCourse);
+      void           setDaysInCourse(int newDaysInCourse[3]);
       void           setDegree(DegreeProgram newDegree);
 
       //Functions

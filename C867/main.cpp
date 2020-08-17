@@ -63,7 +63,6 @@ int main() {
       classRoster->add(studentID, firstName, lastName, email, age, days1, days2, days3, degree);
    }
 
-
    //Print header
    cout << "SCRIPTING AND PROGRAMMING - APPLICATIONS - C867" << endl;
    cout << "C++" << endl;
@@ -87,19 +86,4 @@ int main() {
 
    //5.  Implement the destructor to release the memory that was allocated dynamically in Roster.
    delete classRoster;
-
-
-
-   //Original test code
-   //DegreeProgram degree = DegreeProgram::SOFTWARE;
-   ////Student testStudent = Student("A1", "Karl", "Mattson", "kmatts5@wgu.edu", 37, 30,40,50, degree);
-   ////testStudent.print();
-
-   //Roster testRoster = Roster();
-   //testRoster.add("A1", "Karl", "Mattson", "kmatts5@wgu.edu", 37, 30, 40, 50, degree);
-   //testRoster.printAll();
-   //testRoster.printAverageDaysInCourse("A1");
-   //degree = DegreeProgram::NETWORK;
-   //testRoster.printByDegreeProgram(degree);
-   //testRoster.printInvalidEmails();
 }
